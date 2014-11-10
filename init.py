@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import os
+import textwrap
 
 def main():
     cwd = os.getcwd()
@@ -16,21 +17,15 @@ def main():
         path_script = """
         # pugs utilities
         export PATH=%s:$PATH
-        """.rstrip() % target_dir
-        print "warning:", target_dir, "not in path"
+        """ % target_dir
+        print "Warning:", target_dir, "not in path"
+        print "Please add to bash config:"
+        print textwrap.dedent(path_script)
 
-        # add it to bash config?
-        bash_config = os.path.expanduser('~/.bash_profile')
-        if os.path.exists(bash_config):
-            choice = raw_input("add it to %s? [y/n] " % bash_config)
-            if choice.lower() in ['y', 'yes', 'yeah', 'mhm', 'ruff ruff']:
-                with open(bash_config, 'a') as bash_profile:
-                    bash_profile.write(path_script)
-                os.popen('. %s' % bash_config)
 
     # link to all pugs scripts
     script_names = os.listdir(script_dir)
-    print "adding", len(script_names), "pugs"
+    print "Adding", len(script_names), "pugs."
     for i, script_name in enumerate(script_names):
         link_name = script_name.rstrip('.py')
         source = os.path.join(cwd, script_dir, script_name)
