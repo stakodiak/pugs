@@ -1,7 +1,7 @@
 pugs
 ====
 
-python utilities (good, safe)
+python utilities (good scripts)
 
 ### re
 ```sh
