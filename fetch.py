@@ -1,4 +1,5 @@
 #!/usr/bin/python
+"""Fetches scripts from script dir and adds them to path."""
 import os
 import textwrap
 
@@ -7,7 +8,7 @@ def main():
     target_dir = '/usr/local/pugs'
     script_dir = 'barks'
 
-    # create home for pugs scripts
+    # create home (dog house?) for pugs scripts
     if not os.path.exists(target_dir):
         os.makedirs(target_dir)
         print "created target (%s)" % target_dir
@@ -22,10 +23,9 @@ def main():
         print "Please add to bash config:"
         print textwrap.dedent(path_script)
 
-
     # link to all pugs scripts
     script_names = os.listdir(script_dir)
-    print "Adding", len(script_names), "pugs."
+    print "Fetched", len(script_names), "scripts."
     for i, script_name in enumerate(script_names):
         link_name = script_name.rstrip('.py')
         source = os.path.join(cwd, script_dir, script_name)
@@ -43,6 +43,7 @@ def main():
                 raise e
             else:  # pug down, pug down
                 raise e
+
 
 if __name__ == '__main__':
     main()
