@@ -5,7 +5,7 @@ import textwrap
 def main():
     cwd = os.getcwd()
     target_dir = '/usr/local/pugs'
-    script_dir = 'bin'
+    script_dir = 'barks'
 
     # create home for pugs scripts
     if not os.path.exists(target_dir):
@@ -38,6 +38,9 @@ def main():
         except OSError as e:
             if e.errno == 17:
                 print "(exists)"
+            elif e.errno == 13:
+                print "Can't write to %s!" % target_dir
+                raise e
             else:  # pug down, pug down
                 raise e
 
