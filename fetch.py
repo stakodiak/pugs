@@ -27,6 +27,8 @@ def main():
     script_names = os.listdir(script_dir)
     print "Fetched", len(script_names), "scripts."
     for i, script_name in enumerate(script_names):
+        if script_name.startswith('.'):
+            continue
         link_name = script_name.rstrip('.py')
         source = os.path.join(cwd, script_dir, script_name)
         target = os.path.join(target_dir, link_name)
