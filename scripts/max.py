@@ -7,4 +7,4 @@ if __name__ == '__main__':
         inf = open(sys.argv[1], 'r')
     except IndexError:
         inf = sys.stdin.readlines()
-    print max(map(int, inf))
+    print(max(map(int, inf)))
