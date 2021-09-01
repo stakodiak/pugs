@@ -1,5 +1,10 @@
-#!/usr/bin/python
-"""usage: `cat text | startswith string`"""
+#!/usr/bin/python3
+"""usage: cat text | startswith my_str
+
+Example:
+$ echo "1\nfish" | startswith f
+fish
+"""
 import sys
 
 if __name__ == '__main__':
@@ -9,7 +14,7 @@ if __name__ == '__main__':
             if line.startswith(key):
                 sys.stdout.write(line)
     except IndexError:
-        print __doc__
+        print(__doc__)
         sys.exit(0)
     except IOError:
         sys.exit(1)
