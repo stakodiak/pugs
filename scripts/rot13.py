@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """usage: cat text | rot13"""
 import sys
 
