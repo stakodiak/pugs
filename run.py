@@ -6,7 +6,7 @@ import textwrap
 def main():
     cwd = os.getcwd()
     target_dir = "/usr/local/pugs"
-    script_dir = "barks"
+    script_dir = "scripts"
 
     # create home (dog house?) for pugs scripts
     if not os.path.exists(target_dir):
