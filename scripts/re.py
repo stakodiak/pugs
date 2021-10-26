@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/bin/python3
 """usage: cat file | re regex [replacement]
 
 Simple regex-based substitions:
@@ -35,7 +35,7 @@ if __name__ == '__main__':
             sys.exit()
     try:
         replacement = args[1] if len(args) >= 2 else ''
-        print(re.sub(args[0], replacement, inf.read()),)
+        print(re.sub(args[0], replacement, inf.read()), end=' ')
     except IndexError:
         print(__doc__)
         sys.exit(1)
